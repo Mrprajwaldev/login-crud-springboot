@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Dashboard</title>
+<style>
+body{font-family:Arial;background:#4facfe;color:white;text-align:center;padding-top:150px}
+.card{background:white;color:black;width:400px;margin:auto;padding:30px;border-radius:10px}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>Welcome User 🎉</h2>
+<h3 th:text="'Hello, ' + ${username}"></h3>
+<p>Thank you for logging in.</p>
+<a href="/login">Logout</a>
+</div>
+
+</body>
+</html>

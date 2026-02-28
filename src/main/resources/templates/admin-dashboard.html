@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Admin Dashboard</title>
+<style>
+body{font-family:Arial;background:#f4f4f4;padding:20px}
+h2{text-align:center}
+table{width:80%;margin:auto;border-collapse:collapse;background:white}
+th,td{padding:10px;border:1px solid #ddd;text-align:center}
+th{background:#ff6f61;color:white}
+a{color:red;text-decoration:none}
+</style>
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Role</th>
+<th>Edit Action</th>
+<th>Delete Action</th>
+</tr>
+
+<tr th:each="user : ${users}">
+<td th:text="${user.id}"></td>
+<td th:text="${user.name}"></td>
+<td th:text="${user.email}"></td>
+<td th:text="${user.role}"></td>
+<td>
+    <a th:href="@{'/admin/edit/' + ${user.id}}">Edit</a>
+</td>
+<td>
+<a th:href="@{/admin/delete/{id}(id=${user.id})}"
+onclick="return confirm('Delete this user?')">Delete</a>
+</td>
+</tr>
+</table>
+
+<br>
+<div style="text-align:center">
+<a href="/login">Logout</a>
+</div>
+
+</body>
+</html>
